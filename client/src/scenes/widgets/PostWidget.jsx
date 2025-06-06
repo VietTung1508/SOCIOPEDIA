@@ -15,9 +15,9 @@ import {
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import FlexBetween from "../../components/FlexBetween";
-import Friend from "../../components/Friend";
 import WidgetWrapper from "../../components/WidgetWrapper";
 import { setPost } from "../../state";
+import Friend from "../../components/Friend";
 
 const PostWidget = ({
   postId,
@@ -29,6 +29,7 @@ const PostWidget = ({
   userPicturePath,
   likes,
   comments,
+  createdAt,
 }) => {
   const [isComments, setIsComments] = useState(false);
   const dispatch = useDispatch();
@@ -61,8 +62,10 @@ const PostWidget = ({
         name={name}
         subtitle={location}
         userPicturePath={userPicturePath}
+        createdAt={createdAt}
+        postId={postId}
       />
-      <Typography color={main} sx={{ mt: "1rem" }}>
+      <Typography color={main} sx={{ mt: "0.5rem" }}>
         {description}
       </Typography>
       {picturePath && (
